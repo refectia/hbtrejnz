@@ -1,0 +1,3 @@
+-- placeholder, source coming soon
+local player = game:GetService("Players").LocalPlayer
+player:Kick("Fetch Error: Destination is unreachable")
