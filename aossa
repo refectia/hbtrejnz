@@ -1,3 +1,12 @@
 -- placeholder, source coming soon
+
+local httpRequest = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
+local sv = "nil"
+
+
+
+local MacLib = loadstring(game:HttpGet("https://github.com/biggaboy212/Maclib/releases/latest/download/maclib.txt"))()
+
+
 local player = game:GetService("Players").LocalPlayer
 player:Kick("Fetch Error: Destination is unreachable")
