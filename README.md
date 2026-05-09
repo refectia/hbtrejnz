@@ -2,7 +2,7 @@
 **The script is obfuscated to prevent patches. It's not obfuscated very well, so it shouldn't be too difficult to find out. Nevertheless, there are no security measures and no data gets sent outside of Roblox.**
 Serverside version will release soon!
 
-# State of Anarchy - KoniaHub (Clientside, no bloat)
+# State of Anarchy - JiggleHub (Clientside, no bloat, KoniaHub Remastered)
 __READ BEFORE USING__
 - You must have a good executor, preferably one with 90% UNC or higher. Velocity/Madium is recommended, you can also find more at weao.xyz
 - The game has updated since the final version of this script, so some functions might not work anymore and i do NOT plan on fixing this! You may still open an Issue if you encounter a problem.
