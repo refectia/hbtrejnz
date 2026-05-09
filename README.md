@@ -1,4 +1,4 @@
-## TL;DR - Script is obfuscated primarily to hide from developers. They are currently not working on the game much, and this adds that extra bit of patch protection.
+## TL;DR - Contains script info, including Features, How to Use, and extra notes.
 Serverside version will release soon!
 
 # State of Anarchy - KoniaHub (Clientside, no bloat)
