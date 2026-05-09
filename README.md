@@ -4,7 +4,7 @@ Serverside version will release soon!
 # State of Anarchy - KoniaHub (Clientside, no bloat)
 __READ BEFORE USING__
 - You must have a good executor, preferably one with 90% UNC or higher. Velocity/Madium is recommended, you can also find more at weao.xyz
-- The game has updated since the final version of this script, so some functions might not work anymore and i do NOT plan on fixing this!
+- The game has updated since the final version of this script, so some functions might not work anymore and i do NOT plan on fixing this! You may still open an Issue if you encounter a problem.
 
 ### Upsides compared to original version
 - Faster, more stable
@@ -18,7 +18,7 @@ __READ BEFORE USING__
 
 
 # Features
-**"[DEVELOPER]" Indicates the specific function is limited to personal builds until they are fully polished, or contains functions that use the back-end of the game's server to operate. (Backdoor)**
+**"[DEVELOPER]" Indicates the specific function is limited to personal builds until they are fully polished, or contains functions that use the back-end of the game's server to operate. (Backdoor)**.
 This list may not be up to date
 ### Combat
 - Silent Aim (bullet redirect, prevents bulletTp kills in F9)
@@ -41,16 +41,18 @@ This list may not be up to date
 ### Misc
 - Add Perks 
 - Duplicator (drop stackable item after entering amount and enabling)
-- [DEVELOPER] Crash server
-- [DEVELOPER] Item Spawner
-- [DEVELOPER] Kill [Player/All] [Loop] [Safe version]
-- [DEVELOPER] Spoof Moderator Rank / Enable Moderator Panel (banning and god mode dont work, everything else seems fine)
-- [DEVELOPER] Freeze Time
-- [DEVELOPER] Play Sound [ID] [Player/All]
-- [DEVELOPER] Freeze [Player/All]
-- [DEVELOPER] Execute Script on Server [..\Workspace\] (Execute any script as if you were in Studio, requires file. May fail if dependencies are missing or if the prefix is incorrect.)
+- **[DEVELOPER]** Crash server
+- **[DEVELOPER]** Item Spawner (broken, still good for finding ItemIDs or saving image assets)
+- **[DEVELOPER]** Kill [Player/All] [Loop] [Safe version] (Safe version is broken since the hit registry patch)
+- **[DEVELOPER]** Spoof Moderator Rank / Enable Moderator Panel (banning and god mode dont work, everything else seems fine)
+- **[DEVELOPER]** Freeze Time
+- **[DEVELOPER]** Play Sound [ID] [Player/All]
+- **[DEVELOPER]** Freeze [Player/All]
+- **[DEVELOPER]** Execute Script on Server [..\Workspace\] (Execute any script as if you were in Studio, requires file. May fail if dependencies are missing or if the prefix is incorrect.)
 ### Players
 - Teleport
 ### Config
 - Keybinds
 - Script info
+
+
