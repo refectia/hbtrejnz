@@ -1,4 +1,5 @@
 ## TL;DR - Contains script info, including Features, How to Use, and extra notes.
+**The script is obfuscated to prevent patches. It's not obfuscated very well, so it shouldn't be too difficult to find out. Nevertheless, there are no security measures and no data gets sent outside of Roblox.**
 Serverside version will release soon!
 
 # State of Anarchy - KoniaHub (Clientside, no bloat)
