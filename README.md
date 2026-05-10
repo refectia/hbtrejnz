@@ -19,19 +19,18 @@ __READ BEFORE USING__
 
 
 # Features
-**"[DEVELOPER]" Indicates the specific function is limited to personal builds until they are fully polished, or contains functions that use the back-end of the game's server to operate. (Backdoor)**.
-This list may not be up to date
+This list may not be up to date.
 ### Combat
-- Silent Aim (bullet redirect, prevents bulletTp kills in F9)
+- Silent Aim | bullet redirect, prevents bulletTp/Freecam kills in F9)
 - Wallbang
 - Velocity Changer
 - Fire Rate Changer
 - F9 Log Spoofer
-- Magazine Max Capacity/Edit Magazine (visual, confirmed patched)
+- Magazine Max Capacity/Edit Magazine | visual, confirmed patched
 - Unlock Firemodes
 - More
 ### Visuals
-- Player Chams/Highlight (doesn't highlight invisible players, useful to avoid invis mods)
+- Player Chams/Highlight | doesn't highlight invisible players, useful to avoid invis mods
 - Player Names
 - Player Distance
 - Trader ESP
@@ -41,19 +40,13 @@ This list may not be up to date
 - More
 ### Misc
 - Add Perks 
-- Duplicator (drop stackable item after entering amount and enabling)
-- **[DEVELOPER]** Crash server
-- **[DEVELOPER]** Item Spawner (broken, still good for finding ItemIDs or saving image assets)
-- **[DEVELOPER]** Kill [Player/All] [Loop] [Safe version] (Safe version is broken since the hit registry patch)
-- **[DEVELOPER]** Spoof Moderator Rank / Enable Moderator Panel (banning and god mode dont work, everything else seems fine)
-- **[DEVELOPER]** Freeze Time
-- **[DEVELOPER]** Play Sound [ID] [Player/All]
-- **[DEVELOPER]** Freeze [Player/All]
-- **[DEVELOPER]** Execute Script on Server [..\Workspace\] (Execute any script as if you were in Studio, requires file. May fail if dependencies are missing or if the prefix is incorrect.)
+- Duplicator | drop stackable item after entering amount and enabling
 ### Players
 - Teleport
 ### Config
 - Keybinds
 - Script info
+
+
 
 
