@@ -1,7 +1,7 @@
 ## TL;DR - Contains script info, including Features, How to Use, and extra notes.
 
 
-For State of Anarchy Developers (or Elyeuss): This project exists solely to enhance security/vulnerability patches in your game. Since you've disabled your direct messages, we thought it would be perfect to place this elsewhere. You'll eventually find it, whether you stumble upon it, get a DM containing it, or other scripts that are based off of this one.
+For State of Anarchy Developers (or Elyeuss): This project exists solely to enhance security/vulnerability patches in your game. Since you've disabled your direct messages, we thought it would be perfect to place this elsewhere. You'll eventually find it, whether you stumble upon it, get a DM containing it, or other scripts that are based off of this one. You've left no other choice.
 
 For Executable Script Devs: You may use this script for your own project(s), but please leave credit! You can do this by either linking our README to your script or mentioning KoniaHub/JiggleHub
 
