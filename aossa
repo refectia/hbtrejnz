@@ -3,6 +3,7 @@
                 You can do this by linking our README or simply mentioning KoniaHub/JiggleHub.
               The original script contained barely readable functions, they were all changed to
                                          make it easier to understand.
+                            https://github.com/refectia/hbtrejnz/blob/main/README.md
 ]]--
 local TeleportService = game:GetService("TeleportService")
 local targetUniverseId = 595270616
