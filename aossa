@@ -1,7 +1,8 @@
 --[[ 
                    If you are using this script to develop your own, please include credit!
                 You can do this by linking our README or simply mentioning KoniaHub/JiggleHub.
-              Went through and renamed every function so it's more understandable before release
+              The original script contained barely readable functions, they were all changed to
+                                         make it easier to understand.
 ]]--
 local TeleportService = game:GetService("TeleportService")
 local targetUniverseId = 595270616
