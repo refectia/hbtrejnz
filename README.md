@@ -1,8 +1,16 @@
 ## TL;DR - Contains script info, including Features, How to Use, and extra notes.
-**The script is obfuscated to prevent patches. It's not obfuscated very well, so it shouldn't be too difficult to find out. Nevertheless, there are no security measures and no data gets sent outside of Roblox.**
+
+
+For State of Anarchy Developers (or Elyeuss): This project exists solely to enhance security/vulnerability patches in your game. Since you've disabled your direct messages, we thought it would be perfect to place this elsewhere. You'll eventually find it, whether you stumble upon it, get a DM containing it, or other scripts that are based off of this one.
+
+For Executable Script Devs: You may use this script for your own project(s), but please leave credit! You can do this by either linking our README to your script or mentioning KoniaHub/JiggleHub
+
+For regular players: This script is free, keyless, and open source. This means you can use it without any cost and without having to spend 10 minutes on an ad page, but also means the script will be patched faster than obfuscated and paid/key scripts if development comes back full-swing.
+
+
 Serverside version will release soon!
 
-# State of Anarchy - JiggleHub (Clientside, no bloat, KoniaHub Remastered)
+# State of Anarchy - JiggleHub (Clientside, de-obfuscated, no bloat, KoniaHub Remastered)
 __READ BEFORE USING__
 - You must have a good executor, preferably one with 90% UNC or higher. Velocity/Madium is recommended, you can also find more at weao.xyz
 - The game has updated since the final version of this script, so some functions might not work anymore and i do NOT plan on fixing this! You may still open an Issue if you encounter a problem.
