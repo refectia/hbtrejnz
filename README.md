@@ -14,7 +14,7 @@ __READ BEFORE USING__
 3. Paste the loadstring inside of ur executor, attach, then execute
 
 
-# Features
+## Features
 This list may not be up to date. You can review the code yourself to look for certain features.
 NOTE: For weapon stat modification, you are required to enable the mod, enter a value, then drop your weapon/item and pick it back up. This applies (but not limited to) to Velocity changer, Fire Rate Changer, Unlock Firemodes, Magazine Capacity, Duplicator
 ### Combat
@@ -43,7 +43,23 @@ NOTE: For weapon stat modification, you are required to enable the mod, enter a 
 ### Config
 - Keybinds
 - Script info
+- Terminate Script | Resets metatable, deletes any visuals/overlays, disables everything, then deletes the UI. May cause issues if you execute again after terminating.
 
 
+# Mod Detector
+## Features
+- AutoKick/AutoLeave (F4) Kicks you out of the game when a moderator is detected
+- Mod Detector (F5) Mod Detector Toggle
+- UserID Detector/Alt Detector (F6) Toggle Github repo detector
+- Respawn persistence (F7) Toggles respawn persistence. When on, mod detector will notify you of a mod in ur server every time you respawn.
+- Terminate Script (F8) Terminates the script
 
+## How to Use
+1. Create a GitHub repository
+2. Create a file (can be left empty, but it is required)
+3. Click the file, then click "View Raw"
+4. Copy the link (should look like https://raw.githubusercontent.com/...)
+5. Paste the link into the URL field in the mod detector
 
+**UserID Format**
+123456789, 000000000, 111111111, 987654321
