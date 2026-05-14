@@ -46,14 +46,14 @@ NOTE: For weapon stat modification, you are required to enable the mod, enter a 
 - Terminate Script | Resets metatable, deletes any visuals/overlays, disables everything, then deletes the UI. May cause issues if you execute again after terminating.
 
 
-# Mod Detector
+# Mod Detector 
 - Can be used with low-level or external executors (Xeno, Solara)
 - This works on any game! Simply change the GroupID to the target group. If the game doesn't have a group, use UserID/Alt Detector instead.
 
 ## Features
 - AutoKick/AutoLeave (F4) Kicks you out of the game when a moderator is detected
 - Mod Detector (F5) Mod Detector Toggle
-- UserID Detector/Alt Detector (F6) Toggle Github repo detector
+- UserID Detector/Alt Detector (F6) Treats UserIDs in the GitHub repo as moderators. Meant for detecting moderator alts/games without groups
 - Respawn persistence (F7) Toggles respawn persistence. When on, mod detector will notify you of a mod in ur server every time you respawn.
 - Terminate Script (F8) Terminates the script
 
