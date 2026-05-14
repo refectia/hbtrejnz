@@ -58,7 +58,7 @@ NOTE: For weapon stat modification, you are required to enable the mod, enter a 
 - Terminate Script (F8) Terminates the script
 
 ## How to Use
-1. Create a GitHub repository
+1. Create a GitHub repository | Alternates: Pastebin, Filebin, Traff.co, Discord File Link (temporary)
 2. Create a file (can be left empty, but it is required)
 3. Click the file, then click "View Raw"
 4. Copy the link (should look like __*https://raw.githubusercontent.com/...*__)
