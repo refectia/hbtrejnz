@@ -1,15 +1,3 @@
-## TL;DR - Contains script info, including Features, How to Use, and extra notes.
-
-
-For State of Anarchy Developers (or Elyeuss): This project exists solely to enhance security/vulnerability patches in your game. Since you've disabled your direct messages, we thought it would be perfect to place this elsewhere. You'll eventually find it, whether you stumble upon it, get a DM containing it, or other scripts that are based off of this one. You've left no other choice.
-
-For Executable Script Devs: You may use this script for your own project(s), but please leave credit! You can do this by either linking our README to your script or mentioning KoniaHub/JiggleHub
-
-For regular players: This script is free, keyless, and open source. This means you can use it without any cost and without having to spend 10 minutes on an ad page, but also means the script will be patched faster than obfuscated and paid/key scripts if development comes back full-swing.
-
-
-Serverside version will release soon!
-
 # State of Anarchy - JiggleHub (Clientside, de-obfuscated, no bloat, KoniaHub Remastered)
 __READ BEFORE USING__
 - You must have a good executor, preferably one with 90% UNC or higher. Velocity/Madium is recommended, you can also find more at weao.xyz
@@ -18,7 +6,7 @@ __READ BEFORE USING__
 ### Upsides compared to original version
 - Faster, more stable
 - No logging of any kind (Original script logged IP, Username, UserID, PlaceID, HWID via RobloxAnalyticsService
-- Obfuscation is minimal, so Silent Aim is potentially working
+- Fully Open-Source, meaning you can use this as is, or use it for your own project.
 
 ### How to use
 1. Install Velocity or Madium (or go to weao.xyz)
@@ -27,18 +15,19 @@ __READ BEFORE USING__
 
 
 # Features
-This list may not be up to date.
+This list may not be up to date. You can review the code yourself to look for certain features.
+NOTE: For weapon stat modification, you are required to enable the mod, enter a value, then drop your weapon/item and pick it back up. This applies (but not limited to) to Velocity changer, Fire Rate Changer, Unlock Firemodes, Magazine Capacity, Duplicator
 ### Combat
 - Silent Aim | bullet redirect, prevents bulletTp/Freecam kills in F9)
 - Wallbang
-- Velocity Changer
+- Bullet Velocity Changer
 - Fire Rate Changer
 - F9 Log Spoofer
 - Magazine Max Capacity/Edit Magazine | visual, confirmed patched
 - Unlock Firemodes
 - More
 ### Visuals
-- Player Chams/Highlight | doesn't highlight invisible players, useful to avoid invis mods
+- Player Chams/Highlight | Includes Invisible check, will not highlight invis moderators. This makes it easier to avoid being banned during an ESP check :)
 - Player Names
 - Player Distance
 - Trader ESP
