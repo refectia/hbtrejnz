@@ -1,0 +1,241 @@
+local Players = game:GetService("Players")
+local TweenService = game:GetService("TweenService")
+local RunService = game:GetService("RunService")
+local HttpService = game:GetService("HttpService")
+local UserInputService = game:GetService("UserInputService")
+local LocalPlayer = Players.LocalPlayer
+
+local request = (http and http.request) or http_request or request
+
+local TARGET_GROUP_ID = 3810537
+local ALT_LIST_URL = "REPLACE WITH YOUR OWN GITHUB FILE, CAN BE EMPTY."
+
+local NOTIF_BG_COLOR = Color3.fromHex("242424")
+local NOTIF_OUTLINE_COLOR = Color3.fromHex("B826FF")
+local ALT_OUTLINE_COLOR = Color3.fromHex("FF0000")
+
+local FLAGGED_RANKS = {
+    ["Moderators"] = true,
+    ["Administrator"] = true,
+    ["Contributors"] = true,
+    ["Editing Perms"] = true,
+    ["Elyeuss"] = true
+}
+
+local AltAccounts = {}
+local DetectedStaff = {}
+local Running = true
+local ActiveSlots = {} 
+local Settings = {
+    ModDetector = true,
+    AltDetector = true,
+    RespawnPersistence = true,
+    AutoKick = false,
+    GlowEnabled = true
+}
+
+local InputConnection
+
+local function getGuiParent()
+    if gethui then
+        local hui = gethui()
+        if hui and hui:IsA("BasePlayerGui") then return hui end
+    end
+    return game:GetService("CoreGui")
+end
+
+local function syncAltList()
+    local success, result = pcall(function() return game:HttpGet(ALT_LIST_URL, true) end)
+    if success and result then
+        table.clear(AltAccounts)
+        for id in string.gmatch(result, "%d+") do
+            AltAccounts[tonumber(id)] = true
+        end
+    end
+end
+
+local function getAvailableSlot()
+    local slot = 1
+    while ActiveSlots[slot] do
+        slot = slot + 1
+    end
+    ActiveSlots[slot] = true
+    return slot
+end
+
+local function createNotification(staffMember, rankName, isAlt)
+    if not Running then return end
+    if isAlt and not Settings.AltDetector then return end
+    if not isAlt and not Settings.ModDetector then return end
+    
+    local parent = getGuiParent()
+    if parent:FindFirstChild("ModNotif_" .. staffMember.UserId) then return end
+
+    local mySlot = getAvailableSlot()
+    local targetYOffset = -(mySlot - 1) * 85
+    local themeColor = isAlt and ALT_OUTLINE_COLOR or NOTIF_OUTLINE_COLOR
+
+    local screenGui = Instance.new("ScreenGui")
+    screenGui.Name = "ModNotif_" .. staffMember.UserId
+    screenGui.DisplayOrder = 100
+    screenGui.Parent = parent
+
+    local frame = Instance.new("Frame")
+    frame.Name = "MainFrame"
+    frame.Size = UDim2.new(0, 260, 0, 70)
+    frame.Position = UDim2.new(1, 300, 0.85, targetYOffset)
+    frame.BackgroundColor3 = NOTIF_BG_COLOR
+    frame.BorderSizePixel = 0
+    frame.Parent = screenGui
+    
+    local glow = Instance.new("ImageLabel")
+    glow.Name = "Glow"
+    glow.BackgroundTransparency = 1
+    glow.Position = UDim2.new(0, -15, 0, -15)
+    glow.Size = UDim2.new(1, 30, 1, 30)
+    glow.ZIndex = frame.ZIndex - 1
+    glow.Image = "rbxassetid://5028857084"
+    glow.ImageColor3 = themeColor
+    glow.ImageTransparency = Settings.GlowEnabled and 0.5 or 1
+    glow.ScaleType = Enum.ScaleType.Slice
+    glow.SliceCenter = Rect.new(24, 24, 120, 120)
+    glow.Parent = frame
+
+    local stroke = Instance.new("UIStroke", frame)
+    stroke.Color = themeColor
+    stroke.Thickness = 2.5
+    stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+
+    Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 10)
+
+    local icon = Instance.new("ImageLabel", frame)
+    icon.Size = UDim2.new(0, 50, 0, 50)
+    icon.Position = UDim2.new(0, 10, 0.5, -25)
+    icon.Image = "rbxthumb://type=AvatarHeadShot&id=" .. staffMember.UserId .. "&w=150&h=150"
+    icon.BackgroundTransparency = 1
+    Instance.new("UICorner", icon).CornerRadius = UDim.new(1, 0)
+
+    local title = Instance.new("TextLabel", frame)
+    title.Text = isAlt and "Alt / Reporter!" or "Staff Detected"
+    title.Size = UDim2.new(1, -70, 0, 18)
+    title.Position = UDim2.new(0, 70, 0, 8)
+    title.TextColor3 = themeColor
+    title.Font = Enum.Font.GothamBold
+    title.BackgroundTransparency = 1
+    title.TextSize = 13
+    title.TextXAlignment = Enum.TextXAlignment.Left
+
+    local info = Instance.new("TextLabel", frame)
+    info.Size = UDim2.new(1, -70, 0, 26)
+    info.Position = UDim2.new(0, 70, 0, 24)
+    info.TextColor3 = Color3.fromRGB(255, 255, 255)
+    info.Font = Enum.Font.Gotham
+    info.BackgroundTransparency = 1
+    info.TextSize = 11
+    info.TextXAlignment = Enum.TextXAlignment.Left
+
+    local rankLabel = Instance.new("TextLabel", frame)
+    rankLabel.Size = UDim2.new(1, -70, 0, 14)
+    rankLabel.Position = UDim2.new(0, 70, 0, 48)
+    rankLabel.Text = "Rank: " .. (isAlt and "Known Alt / Snitch" or rankName)
+    rankLabel.TextColor3 = Color3.fromRGB(200, 200, 200)
+    rankLabel.Font = Enum.Font.Gotham
+    rankLabel.BackgroundTransparency = 1
+    rankLabel.TextSize = 10
+    rankLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+    local uiScale = Instance.new("UIScale", frame)
+    uiScale.Scale = 0.5
+
+    local function updateDistance()
+        if not staffMember or not staffMember.Parent or not Running then return end
+        local char = staffMember.Character
+        local myChar = LocalPlayer.Character
+        local dist = (char and myChar) and math.floor((myChar:GetPivot().Position - char:GetPivot().Position).Magnitude) or 0
+        info.Text = staffMember.Name .. " (" .. dist .. "m)"
+    end
+
+    local conn = RunService.Heartbeat:Connect(updateDistance)
+
+    TweenService:Create(frame, TweenInfo.new(0.6, Enum.EasingStyle.Quart, Enum.EasingDirection.Out), {Position = UDim2.new(1, -280, 0.85, targetYOffset)}):Play()
+    TweenService:Create(uiScale, TweenInfo.new(0.5, Enum.EasingStyle.Back), {Scale = 1}):Play()
+
+    task.delay(isAlt and 4 or 7, function()
+        if not frame or not frame.Parent or not Running then return end
+        local fadeOut = TweenService:Create(frame, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.In), {Position = UDim2.new(1, 300, 0.85, targetYOffset)})
+        fadeOut:Play()
+        fadeOut.Completed:Connect(function()
+            conn:Disconnect()
+            ActiveSlots[mySlot] = nil
+            screenGui:Destroy()
+        end)
+    end)
+end
+
+local function checkPlayer(player)
+    if player == LocalPlayer or not Running then return end
+    local isAlt = AltAccounts[player.UserId]
+    local success, role = pcall(function() return player:GetRoleInGroup(TARGET_GROUP_ID) end)
+    
+    if isAlt or (success and role and FLAGGED_RANKS[role]) then
+        DetectedStaff[player.UserId] = {player = player, role = role or "Alt", isAlt = isAlt}
+        if Settings.AutoKick then
+            LocalPlayer:Kick("Staff Detected: " .. player.Name)
+            return
+        end
+        createNotification(player, role or "Alt", isAlt)
+    end
+end
+
+LocalPlayer.CharacterAdded:Connect(function()
+    if Settings.RespawnPersistence and Running then
+        task.wait(1.5)
+        for _, data in pairs(DetectedStaff) do
+            if data.player and data.player.Parent then
+                createNotification(data.player, data.role, data.isAlt)
+            end
+        end
+    end
+end)
+
+InputConnection = UserInputService.InputBegan:Connect(function(input, gpe)
+    if gpe or not Running then return end
+    local key = input.KeyCode
+    
+    if key == Enum.KeyCode.F2 then
+        for _, data in pairs(DetectedStaff) do
+            if data.player and data.player.Parent then createNotification(data.player, data.role, data.isAlt) end
+        end
+    elseif key == Enum.KeyCode.F3 then
+        Settings.GlowEnabled = not Settings.GlowEnabled
+        local parent = getGuiParent()
+        for _, v in pairs(parent:GetChildren()) do
+            if v.Name:find("ModNotif_") then
+                local f = v:FindFirstChild("MainFrame")
+                if f and f:FindFirstChild("Glow") then
+                    f.Glow.ImageTransparency = Settings.GlowEnabled and 0.5 or 1
+                end
+            end
+        end
+    elseif key == Enum.KeyCode.F4 then
+        Settings.AutoKick = not Settings.AutoKick
+    elseif key == Enum.KeyCode.F5 then
+        Settings.ModDetector = not Settings.ModDetector
+    elseif key == Enum.KeyCode.F6 then
+        Settings.AltDetector = not Settings.AltDetector
+    elseif key == Enum.KeyCode.F7 then
+        Settings.RespawnPersistence = not Settings.RespawnPersistence
+    elseif key == Enum.KeyCode.F8 then
+        Running = false
+        if InputConnection then InputConnection:Disconnect() end
+        table.clear(ActiveSlots)
+        local parent = getGuiParent()
+        for _, v in pairs(parent:GetChildren()) do
+            if v.Name:find("ModNotif_") then v:Destroy() end
+        end
+    end
+end)
+
+syncAltList()
+Players.PlayerAdded:Connect(checkPlayer)
+for _, p in ipairs(Players:GetPlayers()) do checkPlayer(p) end
