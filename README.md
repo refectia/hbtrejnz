@@ -47,6 +47,9 @@ NOTE: For weapon stat modification, you are required to enable the mod, enter a 
 
 
 # Mod Detector
+Can be used with low-level or external executors (Xeno, Solara)
+This works on any game! Simply change the GroupID to the target group. If the game doesn't have a group, use UserID/Alt Detector instead.
+
 ## Features
 - AutoKick/AutoLeave (F4) Kicks you out of the game when a moderator is detected
 - Mod Detector (F5) Mod Detector Toggle
@@ -58,8 +61,8 @@ NOTE: For weapon stat modification, you are required to enable the mod, enter a 
 1. Create a GitHub repository
 2. Create a file (can be left empty, but it is required)
 3. Click the file, then click "View Raw"
-4. Copy the link (should look like https://raw.githubusercontent.com/...)
+4. Copy the link (should look like __*https://raw.githubusercontent.com/...*__)
 5. Paste the link into the URL field in the mod detector
 
-**UserID Format**
+**UserID Format**:
 123456789, 000000000, 111111111, 987654321
