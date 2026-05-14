@@ -18,7 +18,7 @@ __READ BEFORE USING__
 This list may not be up to date. You can review the code yourself to look for certain features.
 NOTE: For weapon stat modification, you are required to enable the mod, enter a value, then drop your weapon/item and pick it back up. This applies (but not limited to) to Velocity changer, Fire Rate Changer, Unlock Firemodes, Magazine Capacity, Duplicator
 ### Combat
-- Silent Aim | bullet redirect, prevents bulletTp/Freecam kills in F9)
+- Silent Aim
 - Wallbang
 - Bullet Velocity Changer
 - Fire Rate Changer
@@ -43,7 +43,7 @@ NOTE: For weapon stat modification, you are required to enable the mod, enter a 
 ### Config
 - Keybinds
 - Script info
-- Terminate Script | Resets metatable, deletes any visuals/overlays, disables everything, then deletes the UI. May cause issues if you execute again after terminating.
+- Terminate Script | May cause issues if you execute again after terminating.
 
 
 # Mod Detector 
