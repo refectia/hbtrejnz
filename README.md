@@ -37,7 +37,7 @@ NOTE: For weapon stat modification, you are required to enable the mod, enter a 
 - More
 ### Misc
 - Add Perks 
-- Duplicator | drop stackable item after entering amount and enabling
+- Duplicator
 ### Players
 - Teleport
 ### Config
@@ -51,10 +51,12 @@ NOTE: For weapon stat modification, you are required to enable the mod, enter a 
 - This works on any game! Simply change the GroupID to the target group. If the game doesn't have a group, use UserID/Alt Detector instead.
 
 ## Features
-- AutoKick/AutoLeave (F4) Kicks you out of the game when a moderator is detected
-- Mod Detector (F5) Mod Detector Toggle
-- UserID Detector/Alt Detector (F6) Treats UserIDs in the GitHub repo as moderators. Meant for detecting moderator alts/games without groups
-- Respawn persistence (F7) Toggles respawn persistence. When on, mod detector will notify you of a mod in ur server every time you respawn.
+- Resend notification (F2)
+- Toggle UI Glow (F3) | Not Working, used as test for UI Integration but wasn't removed
+- AutoKick/AutoLeave (F4) | Kicks you out of the game when a moderator is detected
+- Mod Detector (F5) | Mod Detector Toggle
+- UserID Detector/Alt Detector (F6) | Treats UserIDs in the GitHub repo as moderators. Meant for detecting moderator alts/games without groups
+- Respawn persistence (F7) | Toggles respawn persistence. When on, mod detector will notify you of a mod in ur server every time you respawn.
 - Terminate Script (F8) Terminates the script
 
 ## How to Use
