@@ -47,8 +47,8 @@ NOTE: For weapon stat modification, you are required to enable the mod, enter a 
 
 
 # Mod Detector
-Can be used with low-level or external executors (Xeno, Solara)
-This works on any game! Simply change the GroupID to the target group. If the game doesn't have a group, use UserID/Alt Detector instead.
+- Can be used with low-level or external executors (Xeno, Solara)
+- This works on any game! Simply change the GroupID to the target group. If the game doesn't have a group, use UserID/Alt Detector instead.
 
 ## Features
 - AutoKick/AutoLeave (F4) Kicks you out of the game when a moderator is detected
